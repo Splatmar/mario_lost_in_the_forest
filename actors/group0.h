@@ -335,4 +335,6 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "bois/collision_header.h"
 
+#include "lvlsky/header.h"
+
 #endif

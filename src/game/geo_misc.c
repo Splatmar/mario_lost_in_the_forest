@@ -16,6 +16,8 @@
 #include "rendering_graph_node.h"
 #include "save_file.h"
 #include "segment2.h"
+#include "actors/group0.h"
+
 
 /**
  * @file geo_misc.c
@@ -193,4 +195,26 @@ Gfx *geo_exec_cake_end_screen(s32 callContext, struct GraphNode *node, UNUSED Ma
     }
 
     return displayList;
+}
+extern Gfx lvlsky_Cylinder_003_mesh[];
+Gfx c_display_list[10];
+Mtx c_matrix;
+Gfx *e__c9_sky(s32 callContext, struct GraphNode *node, UNUSED void *context) {
+    s32 i;
+    f32 dist;
+    s32 light;
+    Vtx *vert;
+    Vec3s marioPos;
+
+    if (callContext == GEO_CONTEXT_RENDER) {
+        guTranslate(&c_matrix, gLakituState.pos[0], gLakituState.pos[1], gLakituState.pos[2]);
+
+        gSPMatrix(&c_display_list[0], &c_matrix, G_MTX_MODELVIEW | G_MTX_MUL | G_MTX_PUSH);
+        gSPDisplayList(&c_display_list[1], segmented_to_virtual(lvlsky_Cylinder_003_mesh));
+        gSPPopMatrix(&c_display_list[2], G_MTX_MODELVIEW);
+        gSPEndDisplayList(&c_display_list[3]);
+
+        geo_append_display_list(c_display_list, LAYER_FORCE);
+    }
+    return NULL;
 }

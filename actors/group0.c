@@ -33,3 +33,4 @@
 
 #include "bois/model.inc.c"
 #include "bois/collision.inc.c"
+#include "lvlsky/model.inc.c"
