@@ -16,14 +16,16 @@ C, C++
 
 
 
-ASM
+ASM//jai
 Binary
 */
 int main(){
     float nombre = 10.5;
-    
+    switch(nombre) {
     printf("welcome! \n ");
     printf("un decimal => %f\n",nombre);
     return 0;
 
+    }
+    
 }
