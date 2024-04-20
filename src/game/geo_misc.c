@@ -196,7 +196,7 @@ Gfx *geo_exec_cake_end_screen(s32 callContext, struct GraphNode *node, UNUSED Ma
 
     return displayList;
 }
-extern Gfx lvlsky_Cylinder_003_mesh[];
+extern Gfx lvlsky_Sphere_001_mesh[];
 Gfx c_display_list[10];
 Mtx c_matrix;
 Gfx *e__c9_sky(s32 callContext, struct GraphNode *node, UNUSED void *context) {
@@ -210,7 +210,7 @@ Gfx *e__c9_sky(s32 callContext, struct GraphNode *node, UNUSED void *context) {
         guTranslate(&c_matrix, gLakituState.pos[0], gLakituState.pos[1], gLakituState.pos[2]);
 
         gSPMatrix(&c_display_list[0], &c_matrix, G_MTX_MODELVIEW | G_MTX_MUL | G_MTX_PUSH);
-        gSPDisplayList(&c_display_list[1], segmented_to_virtual(lvlsky_Cylinder_003_mesh));
+        gSPDisplayList(&c_display_list[1], segmented_to_virtual(lvlsky_Sphere_001_mesh));
         gSPPopMatrix(&c_display_list[2], G_MTX_MODELVIEW);
         gSPEndDisplayList(&c_display_list[3]);
 

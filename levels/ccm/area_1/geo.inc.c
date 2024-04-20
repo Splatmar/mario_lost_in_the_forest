@@ -14,6 +14,8 @@ const GeoLayout ccm_area_1_geo[] = {
 			GEO_DISPLAY_LIST(LAYER_OPAQUE, ccm_dl_map_mesh_layer_1),
 			GEO_DISPLAY_LIST(LAYER_TRANSPARENT, ccm_dl_map_mesh_layer_5),
 		GEO_CLOSE_NODE(),
+		GEO_ASM(0, e__c9_sky),
+		GEO_TRANSLATE_NODE(LAYER_OPAQUE, -13004, 11501, -7442),
 		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, -328, 9, 402, ccm_dl_tree_mesh_layer_1),
 	GEO_CLOSE_NODE(),
 	GEO_RETURN(),
@@ -33,9 +35,6 @@ const GeoLayout ccm_area_1[] = {
 				GEO_CLOSE_NODE(),
 			GEO_CLOSE_NODE(),
 		GEO_CLOSE_NODE(),
-		GEO_DISPLAY_LIST(LAYER_OPAQUE, ccm_dl_material_revert_render_settings),
-		GEO_DISPLAY_LIST(LAYER_ALPHA, ccm_dl_material_revert_render_settings),
-		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, ccm_dl_material_revert_render_settings),
 	GEO_CLOSE_NODE(),
 	GEO_END(),
 };
