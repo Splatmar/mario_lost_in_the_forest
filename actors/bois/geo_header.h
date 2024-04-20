@@ -1,0 +1,15 @@
+extern const GeoLayout bois_geo[];
+extern u8 bois_tex1_128x128_61eab27110ebeccc_14_ci8[];
+extern u8 bois_tex1_128x128_61eab27110ebeccc_14_pal_rgba16[];
+extern u8 bois_tex1_128x128_123635175d61cd65_14_ci8[];
+extern u8 bois_tex1_128x128_123635175d61cd65_14_pal_rgba16[];
+extern Vtx bois_Cube_mesh_layer_1_vtx_0[39];
+extern Gfx bois_Cube_mesh_layer_1_tri_0[];
+extern Vtx bois_Cube_mesh_layer_1_vtx_1[21];
+extern Gfx bois_Cube_mesh_layer_1_tri_1[];
+extern Gfx mat_bois_f3dlite_material_019[];
+extern Gfx mat_revert_bois_f3dlite_material_019[];
+extern Gfx mat_bois_f3dlite_material_018[];
+extern Gfx mat_revert_bois_f3dlite_material_018[];
+extern Gfx bois_Cube_mesh_layer_1[];
+extern Gfx bois_material_revert_render_settings[];
