@@ -1999,41 +1999,12 @@ s32 check_common_airborne_cancels(struct MarioState *m) {
     m->quicksandDepth = 0.0f;
     return FALSE;
 }
-s16 get_angle_of_triangle_in_axe_y(struct Surface *s) {
-    s16 vertices[3][3];
-
-    // Initialisation de vertices[0], vertices[1], et vertices[2]
-    vertices[0][0] = s->vertex1[0];
-    vertices[0][1] = s->vertex1[1];
-    vertices[0][2] = s->vertex1[2];
-
-    vertices[1][0] = s->vertex2[0];
-    vertices[1][1] = s->vertex2[1];
-    vertices[1][2] = s->vertex2[2];
-
-    vertices[2][0] = s->vertex3[0];
-    vertices[2][1] = s->vertex3[1];
-    vertices[2][2] = s->vertex3[2];
-
-    // On utilise le premier sommet comme référence
-    s16 y1 = vertices[0][2];
-    s16 x1 = vertices[0][0];
-    s16 y2 = vertices[2][2];
-    s16 x2 = vertices[2][0];
-
-    // Calculer l'angle entre (x1, y1) et (x2, y2) en utilisant atan2s
-    s16 angle = atan2s(y2 - y1, x2 - x1);
-
-    return angle;
-
-}
 
 s32 act_slide_grab(struct MarioState *m) {
-    // s16 ceil_angle = absi(get_angle_of_triangle_in_axe_y(m->ceil)); 
     set_mario_animation(m, MARIO_ANIM_HANG_ON_OWL);
-    mario_set_forward_vel(m, 45.1f);
-    m->vel[1] = 50.0f;
+    // m->vel[1] = 50.0f;
     m->faceAngle[1] = m->intendedYaw - approach_s32((s16)(m->intendedYaw - m->faceAngle[1]), 0, 0x800, 0x800);
+    mario_set_forward_vel(m, 45.1f);
     
     perform_air_step(m, 1000);
 
@@ -2057,9 +2028,15 @@ s32 act_slide_grab(struct MarioState *m) {
   
     m->marioObj->header.gfx.pos[1] =   m->pos[1] + 20.0f;   
     return FALSE;
-
-
 }
+
+s32 act_slide_floor(struct MarioState *m) {
+    set_mario_animation(m, MARIO_ANIM_RIDING_SHELL);
+    m->floor._flags
+    Trajectory* traj = segmented_to_virtual(______trajectory______);
+    return FALSE;
+}
+
 s32 mario_execute_airborne_action(struct MarioState *m) {
     u32 cancel = FALSE;
 
@@ -2119,6 +2096,7 @@ s32 mario_execute_airborne_action(struct MarioState *m) {
         case ACT_TOP_OF_POLE_JUMP:     cancel = act_top_of_pole_jump(m);     break;
         case ACT_VERTICAL_WIND:        cancel = act_vertical_wind(m);        break;
         case ACT_SLIDE_GRAB:           cancel = act_slide_grab(m);           break;
+        case ACT_SLIDE_FLOOR:          cancel = act_slide_floor(m);          break;
     }
     /* clang-format on */
 

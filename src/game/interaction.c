@@ -1897,6 +1897,14 @@ void pss_end_slide(struct MarioState *m) {
     }
 }
 
+void custom_slide(struct MarioState *m) {
+    if (m->pos[1] - m->floorHeight <= 10) {
+        set_mario_action(m, ACT_SLIDE_FLOOR, 0);
+    } else {
+        set_mario_action(m, ACT_IDLE, 0);
+    }
+}
+
 void mario_handle_special_floors(struct MarioState *m) {
     if ((m->action & ACT_GROUP_MASK) == ACT_GROUP_CUTSCENE) {
         return;
@@ -1933,6 +1941,8 @@ void mario_handle_special_floors(struct MarioState *m) {
                 pss_end_slide(m);
                 break;
             
+            case SURFACE_SLIDE_SLIDE:
+                custom_slide(m);
         }
 
         if (!(m->action & (ACT_FLAG_AIR | ACT_FLAG_SWIMMING))) {
