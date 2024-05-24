@@ -18,3 +18,7 @@
 #include "mario/geo.inc.c"
 
 #include "bois/geo.inc.c"
+#include "grille/geo.inc.c"
+
+#include "wood_box/geo.inc.c"
+#include "cube/geo.inc.c"

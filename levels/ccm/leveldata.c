@@ -47,3 +47,6 @@
 #include "levels/ccm/areas/2/trajectory.inc.c"
 
 #include "levels/ccm/leveldata.inc.c"
+
+#include "levels/ccm/turning_platform/model.inc.c"
+#include "levels/ccm/turning_platform/collision.inc.c"

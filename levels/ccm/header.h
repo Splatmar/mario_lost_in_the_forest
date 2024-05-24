@@ -60,4 +60,8 @@ extern const LevelScript level_ccm_entry[];
 
 #include "levels/ccm/header.inc.h"
 
+#include "levels/ccm/turning_platform/geo_header.h"
+
+#include "levels/ccm/turning_platform/collision_header.h"
+
 #endif

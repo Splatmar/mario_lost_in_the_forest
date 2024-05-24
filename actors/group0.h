@@ -337,4 +337,14 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "lvlsky/header.h"
 
+#include "grille/geo_header.h"
+
+#include "grille/collision_header.h"
+
+
+
+#include "wood_box/geo_header.h"
+
+#include "cube/geo_header.h"
+
 #endif

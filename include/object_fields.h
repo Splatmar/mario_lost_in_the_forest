@@ -1145,6 +1145,9 @@
 /* Ukiki Cage*/
 #define /*0x088*/ oUkikiCageNextAction OBJECT_FIELD_S32(0x00)
 
+/* Monkey Break Grill*/
+#define /*0x0F4*/ oMonkeyBreakTheGrill OBJECT_FIELD_S32(0x1B)
+
 /* Unagi */
 #define /*0x0F4*/ oUnagiDistFromHome         OBJECT_FIELD_F32(0x1B)
 #define /*0x0F8*/ oUnagiNextForwardVel       OBJECT_FIELD_F32(0x1C)

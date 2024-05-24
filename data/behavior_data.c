@@ -1,7 +1,6 @@
 #define OBJECT_FIELDS_INDEX_DIRECTLY
 
 #include "sm64.h"
-
 #include "object_constants.h"
 #include "game/object_list_processor.h"
 #include "game/interaction.h"
@@ -53,6 +52,7 @@
 #include "levels/wf/header.h"
 #include "levels/bowser_2/header.h"
 #include "levels/ttm/header.h"
+#include "levels/ccm/header.h"
 
 #include "make_const_nonconst.h"
 #include "behavior_data.h"
@@ -468,16 +468,19 @@ const BehaviorScript bhvGiantPole[] = {
 };
 
 const BehaviorScript bhvPoleGrabbing[] = {
+     
     BEGIN(OBJ_LIST_POLELIKE),
-    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    OR_INT(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_MOVE_Y_WITH_TERMINAL_VEL)),
     SET_INT(oInteractType, INTERACT_POLE),
     SET_HITBOX(/*Radius*/ 80, /*Height*/ 1500),
     CALL_NATIVE(bhv_pole_init),
     SET_INT(oIntangibleTimer, 0),
     BEGIN_LOOP(),
         CALL_NATIVE(bhv_pole_base_loop),
+        
     END_LOOP(),
 };
+  
 
 const BehaviorScript bhvThiHugeIslandTop[] = {
     BEGIN(OBJ_LIST_SURFACE),
@@ -1442,7 +1445,7 @@ const BehaviorScript bhvBitfsSinkingCagePlatform[] = {
 
 const BehaviorScript bhvDddMovingPole[] = {
     BEGIN(OBJ_LIST_POLELIKE),
-    OR_INT(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    OR_INT(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_MOVE_Y_WITH_TERMINAL_VEL)),
     SET_INT(oInteractType, INTERACT_POLE),
     SET_HITBOX(/*Radius*/ 80, /*Height*/ 710),
     SET_INT(oIntangibleTimer, 0),
@@ -5991,6 +5994,9 @@ const BehaviorScript bhvDDDPole[] = {
     END_LOOP(),
 };
 
+
+
+
 const BehaviorScript bhvRedCoinStarMarker[] = {
     BEGIN(OBJ_LIST_DEFAULT),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
@@ -6078,4 +6084,52 @@ const BehaviorScript bhvIntroScene[] = {
     END_LOOP(),
 };
 
+const BehaviorScript bhvTurningPlatform[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_LONG(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    LOAD_COLLISION_DATA(turning_platform_collision),
+    SET_FLOAT(oDrawingDistance, 3000),
+    BEGIN_LOOP(),
+        ADD_INT(oFaceAngleYaw, -625),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
 
+
+
+const BehaviorScript breaking_surface[] ={
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_INT(oFlags, (OBJ_FLAG_PERSISTENT_RESPAWN | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    LOAD_COLLISION_DATA(grille_collision),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_grille_loop),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvCoinsred[] ={
+    BEGIN(OBJ_LIST_LEVEL),
+    OR_INT(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO)),
+    BEGIN_LOOP(),    
+        CALL_NATIVE(bhv_coinsred),
+        ADD_INT(oAnimState,1),
+        BILLBOARD(),
+    END_LOOP(),
+};
+
+// MONKEY
+
+const BehaviorScript bhvMonkeyBreakGrill[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    LOAD_ANIMATIONS(oAnimations, ukiki_seg5_anims_05015784),
+    SET_INTERACT_TYPE(INTERACT_TEXT),
+    DROP_TO_FLOOR(),
+    SET_HITBOX(/*Radius*/ 100, /*Height*/ 60),
+    ANIMATE(UKIKI_ANIM_ITCH),
+    SET_HOME(),
+    CALL_NATIVE(bhv_monkey_break_grill_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_monkey_break_grill_loop),
+    END_LOOP(),
+};

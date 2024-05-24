@@ -83,6 +83,7 @@
 // ccm
 #define MODEL_CCM_ROPEWAY_LIFT                 0x36        // ccm_geo_0003D0
 #define MODEL_CCM_SNOWMAN_HEAD                 0x37        // ccm_geo_00040C
+#define MODEL_TURNING_PLATFORM                 0x38        // turning_platform_geo
 
 // castle
 #define MODEL_CASTLE_BOWSER_TRAP               0x35        // castle_geo_000F18
@@ -256,6 +257,7 @@
 #define MODEL_LLL_FALLING_PLATFORM                0x3C        // lll_geo_000B80
 #define MODEL_LLL_LARGE_FALLING_PLATFORM          0x3D        // lll_geo_000B98
 #define MODEL_LLL_VOLCANO_FALLING_TRAP            0x53        // lll_geo_000EA8
+#define MODEL_GRILLE                              0x54        // grille_monkey
 
 // ddd
 #define MODEL_DDD_BOWSER_SUB_DOOR                 0x36        // ddd_geo_000478
@@ -545,6 +547,7 @@
 #define MODEL_WHITE_PUFF                  0xE0        // white_puff_geo
 #define MODEL_TRAJECTORY_MARKER_BALL      0xE1        // bowling_ball_track_geo - duplicate used in SSL Pyramid small sized and as a track ball
 #define MODEL_BOIS      0x50        //bois_geo
+#define MODEL_WOOD_BOX                     0x52       // metal_wood_box
 
 #ifdef IA8_30FPS_COINS
 #define MODEL_SILVER_COIN                 0xE2        // silver_coin_geo

@@ -318,7 +318,7 @@ void bobomb_buddy_act_idle(void) {
  * then tells Mario that is "Ready for blastoff".
  */
 void bobomb_buddy_cannon_dialog(s16 dialogFirstText, s16 dialogSecondText) {
-    struct Object *cannonClosed;
+    struct Object *cannonDoor;
     s16 buddyText, cutscene;
 
     switch (o->oBobombBuddyCannonStatus) {
@@ -326,8 +326,8 @@ void bobomb_buddy_cannon_dialog(s16 dialogFirstText, s16 dialogSecondText) {
             buddyText = cutscene_object_with_dialog(CUTSCENE_DIALOG, o, dialogFirstText);
             if (buddyText != DIALOG_RESPONSE_NONE) {
                 save_file_set_cannon_unlocked();
-                cannonClosed = cur_obj_nearest_object_with_behavior(bhvCannonClosed);
-                if (cannonClosed != NULL) {
+                cannonDoor = cur_obj_nearest_object_with_behavior(bhvCannonClosed);
+                if (cannonDoor != NULL) {
                     o->oBobombBuddyCannonStatus = BOBOMB_BUDDY_CANNON_OPENING;
                 } else {
                     o->oBobombBuddyCannonStatus = BOBOMB_BUDDY_CANNON_STOP_TALKING;
@@ -336,8 +336,8 @@ void bobomb_buddy_cannon_dialog(s16 dialogFirstText, s16 dialogSecondText) {
             break;
 
         case BOBOMB_BUDDY_CANNON_OPENING:
-            cannonClosed = cur_obj_nearest_object_with_behavior(bhvCannonClosed);
-            cutscene = cutscene_object(CUTSCENE_PREPARE_CANNON, cannonClosed);
+            cannonDoor = cur_obj_nearest_object_with_behavior(bhvCannonClosed);
+            cutscene = cutscene_object(CUTSCENE_PREPARE_CANNON, cannonDoor);
             if (cutscene == -1) {
                 o->oBobombBuddyCannonStatus = BOBOMB_BUDDY_CANNON_OPENED;
             }
@@ -381,9 +381,9 @@ void bobomb_buddy_act_talk(void) {
 
             case BOBOMB_BUDDY_ROLE_CANNON:
                 if (gCurrCourseNum == COURSE_BOB) {
-                    bobomb_buddy_cannon_dialog(DIALOG_004, DIALOG_105);
+                    bobomb_buddy_cannon_dialog(DIALOG_079, DIALOG_079);
                 } else {
-                    bobomb_buddy_cannon_dialog(DIALOG_047, DIALOG_106);
+                    bobomb_buddy_cannon_dialog(DIALOG_079, DIALOG_079);
                 }
                 break;
         }

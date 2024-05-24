@@ -6,6 +6,7 @@ const GeoLayout ccm_area_1_geo[] = {
 		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, 8129, 0, 4700, ccm_dl_Cylinder_mesh_layer_1),
 		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, 509, 0, 11358, ccm_dl_Cylinder_001_mesh_layer_1),
 		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, -3547, 0, 9757, ccm_dl_Cylinder_002_mesh_layer_1),
+		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, -3547, 0, 9757, ccm_dl_Cylinder_004_mesh_layer_1),
 		GEO_TRANSLATE_ROTATE_WITH_DL(LAYER_ALPHA, -4218, 4471, -181, 90, 0, 0, ccm_dl_greenery_pack_mesh_layer_4),
 		GEO_TRANSLATE_ROTATE_WITH_DL(LAYER_ALPHA, -1102, 6991, -1845, 90, 0, 0, ccm_dl_greenery_pack_001_mesh_layer_4),
 		GEO_TRANSLATE_ROTATE_WITH_DL(LAYER_ALPHA, -2619, 5889, -973, 90, 0, 0, ccm_dl_greenery_pack_002_mesh_layer_4),

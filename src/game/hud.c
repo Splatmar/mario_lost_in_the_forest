@@ -394,6 +394,17 @@ void render_hud_mario_lives(void) {
     print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_LEFT_EDGE(54), HUD_TOP_Y, "%d", gHudDisplay.lives);
 }
 
+/**
+ * Renders the amount of lives Mario has.
+ */
+#include "include/behavior_data.h"
+void render_hud_special_coins(void) {
+    print_text(GFX_DIMENSIONS_RECT_FROM_LEFT_EDGE(22), 20, "$"); // 'Mario Head' glyph
+    print_text(GFX_DIMENSIONS_RECT_FROM_LEFT_EDGE(38), 20, "*"); // 'X' glyph
+    s32 specialCoins = 6 - count_objects_with_behavior(bhvCoinsred);
+    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_LEFT_EDGE(54), 20, "%d", specialCoins);
+}
+
 #ifdef VANILLA_STYLE_CUSTOM_DEBUG
 void render_debug_mode(void) {
     print_text(180, 40, "DEBUG MODE");
@@ -564,6 +575,7 @@ void render_hud(void) {
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_COIN_COUNT) {
             render_hud_coins();
+            render_hud_special_coins();
         }
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_STAR_COUNT) {

@@ -1040,20 +1040,20 @@ if you're not quick to\n\
 collect them! Too bad."))
 
 DEFINE_DIALOG(DIALOG_079, 1, 4, 30, 200, _("\
-Owwwuu! Let me go!\n\
-Uukee-kee! I was only\n\
-teasing! Can't you take\n\
-a joke?\n\
-I'll tell you what, let's\n\
-trade. If you let me go,\n\
-I'll give you something\n\
-really good.\n\
-So, how about it?\n\
-\n\
-//Free him/ Hold on"))
+Owwwuu! you found \n\
+the 6 coins!\n\
+I can finally buy \n\
+lots of bananas\n\
+I love bananas,\n\
+it's really...\n\
+what ?\n\
+The grid? \n\
+Oh yeah , I'll take care \n\
+of it!\n\
+"))
 
 DEFINE_DIALOG(DIALOG_080, 1, 1, 30, 200, _("\
-Eeeh hee hee hee!"))
+BANANAS BANANAS !"))
 
 DEFINE_DIALOG(DIALOG_081, 1, 4, 30, 200, _("\
 The mystery is of Wet\n\

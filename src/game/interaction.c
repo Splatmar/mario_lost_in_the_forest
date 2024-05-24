@@ -532,6 +532,7 @@ UNUSED static u32 unused_determine_knockback_action(struct MarioState *m) {
         m->forwardVel *= -1.0f;
         if (m->action & (ACT_FLAG_AIR | ACT_FLAG_ON_POLE | ACT_FLAG_HANGING)) {
             bonkAction = ACT_BACKWARD_AIR_KB;
+            m->pos[1] -= 30.0f;
         } else {
             bonkAction = ACT_SOFT_BACKWARD_GROUND_KB;
         }
@@ -1898,9 +1899,9 @@ void pss_end_slide(struct MarioState *m) {
 }
 
 void custom_slide(struct MarioState *m) {
-    if (m->pos[1] - m->floorHeight <= 10) {
+    if (m->pos[1] - m->floorHeight <= 1) {
         set_mario_action(m, ACT_SLIDE_FLOOR, 0);
-    } else {
+    } else if(m->action==ACT_SLIDE_FLOOR) {
         set_mario_action(m, ACT_IDLE, 0);
     }
 }
@@ -1912,6 +1913,9 @@ void mario_handle_special_floors(struct MarioState *m) {
 
     if (m->floor != NULL) {
         s32 floorType = m->floor->type;
+        if (m->action == ACT_SLIDE_FLOOR && floorType != SURFACE_SLIDE_SLIDE){
+            set_mario_action(m,ACT_IDLE,0);
+        }
 
         if (m->ceilHeight - m->pos[1] < 200) {
             if (m->action != ACT_GROUND_POUND && m->ceil != NULL && m->ceil->type == SURFACE_SLIDE_SLIDE) {
@@ -1943,6 +1947,7 @@ void mario_handle_special_floors(struct MarioState *m) {
             
             case SURFACE_SLIDE_SLIDE:
                 custom_slide(m);
+                break;
         }
 
         if (!(m->action & (ACT_FLAG_AIR | ACT_FLAG_SWIMMING))) {

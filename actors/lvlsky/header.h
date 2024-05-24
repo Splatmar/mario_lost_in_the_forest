@@ -1,7 +1,7 @@
 extern u8 lvlsky_nuit_ci8[];
 extern u8 lvlsky_nuit_pal_rgba16[];
-extern u8 lvlsky_ci4_nat_darkdirt_ci4[];
-extern u8 lvlsky_ci4_nat_darkdirt_pal_rgba16[];
+extern u8 lvlsky_ci4_anonmoose_Grass1_ci4[];
+extern u8 lvlsky_ci4_anonmoose_Grass1_pal_rgba16[];
 extern u8 lvlsky_Material4_ci8[];
 extern u8 lvlsky_Material4_pal_rgba16[];
 extern Vtx lvlsky_Sphere_001_mesh_vtx_0[234];

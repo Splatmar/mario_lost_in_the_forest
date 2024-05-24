@@ -34,3 +34,8 @@
 #include "bois/model.inc.c"
 #include "bois/collision.inc.c"
 #include "lvlsky/model.inc.c"
+#include "grille/model.inc.c"
+#include "grille/collision.inc.c"
+
+#include "wood_box/model.inc.c"
+#include "cube/model.inc.c"
